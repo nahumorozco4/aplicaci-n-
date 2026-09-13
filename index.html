@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0d1728">
+<meta name="description" content="Teyvat Tracker: ahorro, pity, deseos y recursos de Genshin Impact.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icon.svg">
+<link rel="stylesheet" href="styles.css">
+<title>Teyvat Tracker</title>
+</head>
+<body>
+<div class="app-shell">
+  <main id="app">
+    <section class="hero-card">
+      <div class="hero-glow"></div><div class="hero-stars">✦　·　✧　·　✦</div>
+      <div class="eyebrow">PROYECTO DE AHORRO • CONTROL DINÁMICO</div>
+      <h1><span>GENSHIN IMPACT</span><br>TRACKER</h1>
+      <div class="hero-divider"></div>
+      <div class="hero-goal"><div><small>OBJETIVO</small><strong id="heroGoalTitle">TSARITZA &amp; DANICA</strong></div><div><small>FECHA OBJETIVO</small><strong id="heroGoalDate">16 de diciembre de 2026</strong></div></div>
+    </section>
+
+    <section class="metric-grid">
+      <button class="metric-card" data-action="resources" aria-label="Actualizar protogemas"><span>💎 PROTOGEMAS</span><strong id="primogems">1,803</strong></button>
+      <button class="metric-card" data-action="inventory"><span>🎟️ DESEOS</span><strong id="fates">69</strong><small><i>🌸</i> <b id="pinkFates">0</b> · <i>🔵</i> <b id="blueFates">0</b></small></button>
+      <button class="metric-card" data-action="pity"><span>⭐ PITY</span><strong><b id="pityNumber">34</b><em>/90</em></strong></button>
+      <button class="metric-card" data-action="pity"><span>🎲 PRÓXIMO 5★</span><strong id="guaranteeLabel">50/50</strong></button>
+    </section>
+
+    <section class="effective-card">
+      <div class="effective-title">💰 RECURSOS EFECTIVOS</div>
+      <strong id="effective">114.3 DESEOS</strong>
+      <p>Deseos + pity + protogemas ÷ 160. Los canjes de tienda se muestran aparte para no inflar tu ahorro base.</p>
+    </section>
+
+    <section class="progress-card">
+      <div class="progress-head"><div><small>PROGRESO HACIA <b id="goalTarget">270</b> DESEOS</small><strong id="goalPercent">42.3%</strong></div><div class="days"><strong id="daysLeft">94</strong><small>días</small></div></div>
+      <div class="progress-bar"><i id="goalProgress"></i></div>
+      <div class="progress-foot"><span>Faltan <b id="goalPrimosMissing">24,917</b> 💎</span><span><b id="goalWishMissing">155.7</b> deseos</span></div>
+      <div class="daily-grid"><div><span>💎 PROTOGEMAS / DÍA</span><strong id="dailyPrimos">265</strong></div><div><span>✦ DESEOS / DÍA</span><strong id="dailyWishes">1.7</strong></div><div><span>🎯 META</span><strong id="goalDateShort">16 dic</strong></div></div>
+    </section>
+
+    <section class="panel shop-panel">
+      <div class="section-title"><div><span>🛍️ TIENDA MENSUAL</span><h2>Canjes disponibles</h2></div><button class="link-btn" data-action="shop">Editar</button></div>
+      <div class="shop-row"><div><b>Canjear 🌸 Rosado</b><small id="pinkShopText">5 disponibles</small></div><button class="shop-btn" id="buyPink">−5</button></div>
+      <div class="shop-row"><div><b>Canjear 🔵 Azul</b><small id="blueShopText">5 disponibles</small></div><button class="shop-btn" id="buyBlue">−5</button></div>
+      <div class="dust-row">✨ Polvo estelar: <b id="stardust">45</b> · Brillo estelar: <b id="starglitter">4</b></div>
+    </section>
+
+    <section class="panel inventory-panel">
+      <div class="section-title"><div><span>🎟️ INVENTARIO DE DESEOS</span><h2>SEPARADOS POR TIPO</h2></div></div>
+      <div class="inventory-grid"><div><span>🌸 Rosados</span><strong id="pinkInventory">0</strong></div><div><span>🔵 Azules</span><strong id="blueInventory">0</strong></div><div><span>📦 Sin clasificar</span><strong id="unclassified">69</strong></div></div>
+    </section>
+
+    <section class="action-stack">
+      <button class="big-action gold" data-action="inventory">✨ Registrar saldo actual</button>
+      <button class="big-action" data-action="settings">⚙️ Configuración</button>
+      <button class="big-action" data-action="pity">⭐ Actualizar pity</button>
+      <button class="big-action" data-action="day">📅 Cerrar día</button>
+      <button class="big-action" data-action="undo">↩️ Deshacer último registro</button>
+      <div class="small-actions"><button data-action="export">💾 Exportar</button><button data-action="import">📥 Importar</button><button class="danger" data-action="reset">🗑️ Reiniciar</button></div>
+    </section>
+
+    <section class="history-section"><div class="history-head"><h2>📜 HISTORIAL</h2><button id="clearHistory" class="link-btn">Limpiar</button></div><div id="historyList"></div></section>
+    <div class="bottom-space"></div>
+  </main>
+  <nav class="bottom-nav" aria-label="Navegación principal"><button class="nav active" data-nav="home"><span>⌂</span>Inicio</button><button class="nav" data-nav="wishes"><span>✦</span>Deseos</button><button class="nav" data-nav="goals"><span>🎯</span>Metas</button><button class="nav" data-nav="stats"><span>◒</span>Stats</button><button class="nav" data-nav="more"><span>☷</span>Más</button></nav>
+</div>
+<div class="modal-backdrop" id="modalBackdrop"><div class="modal" id="modal"></div></div><div id="toast" class="toast"></div>
+<script src="app.js"></script>
+</body></html>
